@@ -19,12 +19,14 @@ app.get("/v1/students", (request, response) => {
 });
 
 app.get("/v1/students/email", (request, response) => {
-  const emails = getEmails();
+  const students = getStudents();
+  const emails = getEmails(students);
   response.json(emails);
 });
 
 app.get("/v1/students/credits", (request, response) => {
-  const credits = getCredits();
+  const students = getStudents();
+  const credits = getCredits(students);
   response.json(credits);
 });
 
