@@ -1,5 +1,9 @@
 const express = require("express");
-const { getStudents } = require("./lib/controller/StudentController");
+const {
+  getStudents,
+  getEmails,
+  getCredits,
+} = require("./lib/controller/StudentController");
 const Reader = require("./lib/utils/Reader");
 const app = express();
 app.use(express.json());
@@ -15,14 +19,13 @@ app.get("/v1/students", (request, response) => {
 });
 
 app.get("/v1/students/email", (request, response) => {
-  const students = Reader.readJsonFile("db.json");
-
-  response.json(students);
+  const emails = getEmails();
+  response.json(emails);
 });
 
 app.get("/v1/students/credits", (request, response) => {
-  const students = Reader.readJsonFile("db.json");
-  response.json(students);
+  const credits = getCredits();
+  response.json(credits);
 });
 
 app.listen(port, () => {
