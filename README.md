@@ -14,12 +14,13 @@ Requerimientos:
 
 
 ## Diseño de componentes
-
-    Json-->Reader-->StudentController-->Server--> API
-    API --> v1/students/
-    API --> v1/students/emails
-    API --> v1/students/credits
-
+```mermaid
+  graph TD;
+    Json-->Reader-->StudentController-->|Unit Tests| Server--> C{API}
+    C --> v1/students/
+    C --> v1/students/emails
+    C --> v1/students/credits
+```
 ## Endpoint para consultar todos los estudiantes con todos los campos
 ![image](https://user-images.githubusercontent.com/99354481/166125530-17920cba-7f7b-45fc-914c-2b727b092a34.png)
 
